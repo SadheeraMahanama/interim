@@ -12,25 +12,32 @@ import { StackNavigator} from 'react-navigation';
 import Splash2 from './screens/Splash2';
 import Login from './screens/Login';
 import Profile from './screens/Profile';
-//import Animation from './screens/Animation';
-   
-import Sample from './screens/Sample';
+import Schedule from './screens/Schedule';
+import Fees from './screens/Fees';
+import Marks from './screens/Marks';
+import Attendance from './screens/Attendance';
+//import  StackHome from './screens/Profile';
+ 
  
 
  
  
 const Application =  StackNavigator(
   {
-    Splash2 : {screen:Splash2},
-    Login : {screen:Login},
-     Profile : {screen:Profile}
-     //Sample : {screen:Sample}
+   // Splash2 : {screen:Splash2},
+    //Login : {screen:Login},
+    Profile : {screen:Profile},
+   // Schedule : {screen:Schedule},
+   // Fees : {screen:Fees},
+    //Marks : {screen:Marks},
+    //Attendance: {screen:Attendance}
+     
   },
-  {  
-    mode : 'modal',
-    headerMode : 'none'
+  // {  
+  //   mode : 'modal',
+  //   headerMode : 'none'
 
-  }
+  // }
 );
  
  
@@ -39,6 +46,7 @@ const Application =  StackNavigator(
     return (
       <View style = {styles.container}>
       <Application/> 
+        
        </View>
     );
   }

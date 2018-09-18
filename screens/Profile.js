@@ -4,9 +4,11 @@ import { NavigationActions, StackActions } from 'react-navigation';
 import { Card, ListItem, Button,Icon,Avatar } from 'react-native-elements'
 //import Icon from 'react-native-vector-icons/Ionicons';
   
-
-
+ 
 class Profile extends Component {
+    static navigationOptions={
+        header:null
+      }
 
     constructor(props) {
         super(props);
@@ -57,9 +59,11 @@ class Profile extends Component {
         <View style={styles.container}>
 
             <View style={styles.top}>
+
                 <View style={styles.profileImage}>
                  <Image source={require('../images/user.png')} style={styles.img}/>
                 </View>
+
                  <View style={styles.txt}>
                  <Text style = {styles.topText}>Name:</Text>
                  <Text style = {styles.topText}>Index:</Text>
@@ -77,7 +81,10 @@ class Profile extends Component {
                                 icon={<Icon name='code' color='#ffffff' />}
                                 backgroundColor='#616161'
                                 buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-                                title='Schedule'  />
+                                title='Schedule' 
+                                onPress={() => {
+                                    this.props.navigation.navigate('Schedule');
+                                }} />
                         </Card> 
                     </View>
                 </View>
@@ -89,7 +96,10 @@ class Profile extends Component {
                                 icon={<Icon name='code' color='#ffffff' />}
                                 backgroundColor='#616161'
                                 buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-                                title='Class Fees' />
+                                title='Class Fees'
+                                onPress={() => {
+                                    this.props.navigation.navigate('Fees');
+                                }}  />
                         </Card> 
                     </View>
                 </View>
@@ -101,7 +111,10 @@ class Profile extends Component {
                                 icon={<Icon name='code' color='#ffffff' />}
                                 backgroundColor='#616161'
                                 buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-                                title='Marks' />
+                                title='Marks'
+                                onPress={() => {
+                                    this.props.navigation.navigate('Marks');
+                                }}  />
                         </Card> 
                     </View>
                 </View>
@@ -113,7 +126,10 @@ class Profile extends Component {
                                 icon={<Icon name='code' color='#ffffff' />}
                                 backgroundColor='#616161'
                                 buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-                                title='Attendance' />
+                                title='Attendance'
+                                onPress={() => {
+                                    this.props.navigation.navigate('Attendance');
+                                }}  />
                         </Card> 
                     </View>
                 </View>
@@ -147,18 +163,19 @@ const styles = StyleSheet.create({
         flex:1,
      },
      top:{
+        flexDirection: 'row',
         height: '25%',
         alignItems: 'center',
-        justifyContent : 'center',
+        justifyContent : 'flex-start',
         backgroundColor : '#FFF176',
+       
      },
      profileImage:{
-         flexDirection : 'row', 
          width: 100,
          height:100,
          alignItems: 'center',
-        justifyContent : 'center',
-        // alignItems : 'flex-start',
+         justifyContent : 'center',
+         //alignItems : 'flex-start',
          //justifyContent : 'flex-start',
          borderRadius:100,
          borderWidth:4,
@@ -166,6 +183,7 @@ const styles = StyleSheet.create({
          backgroundColor:'#eee',
          //marginBottom : '5%',
          //marginRight: '50%',
+         marginLeft: 20
           
      },
      
@@ -198,10 +216,10 @@ const styles = StyleSheet.create({
 
      },
      txt:{
-        //marginBottom : '55%',
-       // marginLeft : 200,
+        marginLeft : 40,
      },
      img:{
+        
          height:60,
          width: 60,
          //borderRadius:75,

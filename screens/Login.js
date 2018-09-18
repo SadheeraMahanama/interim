@@ -6,7 +6,6 @@ import {
   StyleSheet,
   Text,
   View,
-  KeyboardAvoidingView,
   ImageBackground,
   TextInput,
   AsyncStorage,
@@ -23,6 +22,9 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
    
   class  Login extends Component {
+    static navigationOptions={
+        header:null
+      }
        
       constructor(props){
           super(props);
