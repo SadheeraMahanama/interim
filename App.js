@@ -12,11 +12,13 @@ import { StackNavigator} from 'react-navigation';
 import Splash2 from './screens/Splash2';
 import Login from './screens/Login';
 import Profile from './screens/Profile';
+import Camera from './screens/Camera';
 import Schedule from './screens/Schedule';
 import Fees from './screens/Fees';
 import Marks from './screens/Marks';
 import Attendance from './screens/Attendance';
-//import  StackHome from './screens/Profile';
+import Forgot from './screens/Forgot';
+ 
  
  
 
@@ -24,13 +26,14 @@ import Attendance from './screens/Attendance';
  
 const Application =  StackNavigator(
   {
-   // Splash2 : {screen:Splash2},
-    //Login : {screen:Login},
-    Profile : {screen:Profile},
-   // Schedule : {screen:Schedule},
-   // Fees : {screen:Fees},
-    //Marks : {screen:Marks},
-    //Attendance: {screen:Attendance}
+  Splash2 : {screen:Splash2},
+  Login : {screen:Login},
+  Profile : {screen:Profile},
+  Schedule : {screen:Schedule},
+  Fees : {screen:Fees},
+  Marks : {screen:Marks},
+  Attendance: {screen:Attendance},
+  Forgot:{screen:Forgot}
      
   },
   // {  

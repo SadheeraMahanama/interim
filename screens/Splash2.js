@@ -16,7 +16,7 @@ ImageBackground,
 const {width,height} = Dimensions.get('window');
  
 
-  class Splash extends Component {
+  class Splash2 extends Component {
     static navigationOptions={
       header:null
     }
@@ -60,7 +60,7 @@ const {width,height} = Dimensions.get('window');
 const styles = StyleSheet.create({
   container: {
     flex:1,
-    backgroundColor:'#B3E5FC', 
+    backgroundColor:'#BBDEFB', 
     justifyContent:'center',
     alignItems:'center',
   },
@@ -69,9 +69,9 @@ const styles = StyleSheet.create({
       width:height*2,
       height:height*2,
       borderRadius: height,
-      backgroundColor: '#FFF176',
+      backgroundColor: '#448AFF',
   }
    
   
 })  ;
-export default Splash;
+export default Splash2;

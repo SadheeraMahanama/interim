@@ -11,7 +11,6 @@ import {
   TouchableHighlight,
   Dimensions,
   Button,
-  
 } from 'react-native'; 
 
  
@@ -32,6 +31,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
                email :'',
                //validated: false ,
                password:'',
+               error:'',
                showPass : true,
                press : false,
   
@@ -47,34 +47,59 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
       }
        
-      login = () => {
-        fetch('https://polar-meadow-28819.herokuapp.com/user/login', {
+      async login() {
+          try{
+          let response = await fetch('https://polar-meadow-28819.herokuapp.com/user/login', {
             method: 'POST',
             headers: {
+                'Accept' : 'application/json',
                 'Content-type': 'application/json',
             },
             body: JSON.stringify({
+                session:{
                 email: this.state.email,
                 password: this.state.password,
-            })
-        })
-
-            .then((response) => response.json())
-            .then((res) => {
-              
-
-                if (res.state === true) {
-                    alert('Successfully Loged in');
-                    AsyncStorage.setItem('token',res.JWT_Token);
-                    this.props.navigation.navigate('Profile');
-                } else {
-                    alert('no response from backend')
                 }
             })
-            .done();
+        });
+
+        let res = await response
+
+      
+         
     }
+}
  
+    /*constructor(props){
+        super(props);
+        this.state = {
+                    email :'',
+                    validated: false ,
+                     }
+      };
     
+    go = () => {
+               const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+               if (reg.test(this.state.email) === true){
+                   alert( valid);
+               }
+               else{
+                   alert();
+               }
+     }
+      render(){
+           return(
+             <View style={{alignSelf:'center',marginTop:100}}>
+                  <TextInput autoCapitalize="none" autoCorrect={false} style={{height:20,width:200,backgroundColor:'blue'}} value={this.setState.email}/>
+    
+                  <Button onPress={this.go.bind(this)}>
+                     <Text> GO </Text>
+                  </Button>
+              </View>
+    
+           );
+        }
+    }*/
 
 
 
@@ -108,9 +133,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
                    // placeholderTextColor= {'rgba(255,255,255,0.9)'}
                     style={styles.textInput}
                     underlineColorAndroid={'transparent'}
-                    onChangeText={(email) => this.setState({email})}
-                   // keyboardType = "email_address"
-                    />
+                    onChangeText={(email) => this.setState({email})}/>
                    
                 </View>
 
@@ -138,12 +161,17 @@ import Icon from 'react-native-vector-icons/Ionicons';
              />
             </TouchableOpacity>
         </View>
-                <TouchableOpacity onPress ={this.login.bind(this)}
+                {/* <TouchableOpacity onPress ={this.login.bind(this)}
                 style={styles.button}> 
                 <Text style={styles.btntext}>Login</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
 
-                 
+                <TouchableHighlight  onPress ={this.login.bind(this)}
+                style={styles.button}> 
+                <Text style={styles.btntext}>Login</Text>
+                </TouchableHighlight>
+
+                <Text style = {styles.error}>{this.state.error}</Text>
                 
                 <Text style= {styles.pwtxt}>Forgot password?</Text>
                 </View>
@@ -239,7 +267,7 @@ const styles = StyleSheet.create({
        marginTop: 0.5
        },
        pwtxt:{
-           color : '#0277BD',
+           color : '#007bff',
            fontSize : 18,
            marginLeft :  200,
        },

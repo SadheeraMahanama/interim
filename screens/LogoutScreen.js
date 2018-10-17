@@ -1,3 +1,54 @@
+  
+import React, { Component } from 'react';
+import {
+  StyleSheet,
+  View,
+  Text,
+  Image,
+} from 'react-native';
+
+ import { Icon, Button, Container, Header, Content, Left } from 'native-base'
+ 
+ 
+ class   LogoutScreen extends Component {
+    static navigationOptions ={
+        drawerIcon:(
+            <Image source = {require('../images/logout.png')}
+            style={{height:20,width:20}}
+            />
+        )
+    }
+  render() {
+    return (
+        <Container>
+              <Header style={{ backgroundColor:'#9C27B0'}}>
+                <Left style={{flex:1}}>
+                <Icon name = "ios-menu" 
+                    onPress={() => this.props.navigation.navigate('DrawerOpen')}/> 
+                </Left>
+            </Header>
+            <Content contentContainerStyle={{
+                flex:1,
+                alignItems:'center',
+                justifyContent:'center'
+            }}> 
+            
+                <Text>Logout Screen</Text>
+            </Content>
+        </Container>
+        
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+   
+});
+export default  LogoutScreen;
+
+
+
+
 import React, { Component } from 'react';
  
 import {
@@ -8,10 +59,8 @@ import {
   TextInput,
   AsyncStorage,
   TouchableOpacity,
-  TouchableHighlight,
   Dimensions,
   Button,
-  
 } from 'react-native'; 
 
  
@@ -65,16 +114,45 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
                 if (res.state === true) {
                     alert('Successfully Loged in');
-                    AsyncStorage.setItem('token',res.JWT_Token);
+                    AsyncStorage.setItem('token', res.JWT_Token);
                     this.props.navigation.navigate('Profile');
                 } else {
-                    alert('no response from backend')
+                    alert('no responce from backend')
                 }
             })
             .done();
     }
  
+    /*constructor(props){
+        super(props);
+        this.state = {
+                    email :'',
+                    validated: false ,
+                     }
+      };
     
+    go = () => {
+               const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+               if (reg.test(this.state.email) === true){
+                   alert( valid);
+               }
+               else{
+                   alert();
+               }
+     }
+      render(){
+           return(
+             <View style={{alignSelf:'center',marginTop:100}}>
+                  <TextInput autoCapitalize="none" autoCorrect={false} style={{height:20,width:200,backgroundColor:'blue'}} value={this.setState.email}/>
+    
+                  <Button onPress={this.go.bind(this)}>
+                     <Text> GO </Text>
+                  </Button>
+              </View>
+    
+           );
+        }
+    }*/
 
 
 
@@ -108,9 +186,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
                    // placeholderTextColor= {'rgba(255,255,255,0.9)'}
                     style={styles.textInput}
                     underlineColorAndroid={'transparent'}
-                    onChangeText={(email) => this.setState({email})}
-                   // keyboardType = "email_address"
-                    />
+                    onChangeText={(email) => this.setState({email})}/>
                    
                 </View>
 
@@ -142,8 +218,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
                 style={styles.button}> 
                 <Text style={styles.btntext}>Login</Text>
                 </TouchableOpacity>
-
-                 
                 
                 <Text style= {styles.pwtxt}>Forgot password?</Text>
                 </View>
@@ -239,7 +313,7 @@ const styles = StyleSheet.create({
        marginTop: 0.5
        },
        pwtxt:{
-           color : '#0277BD',
+           color : '#007bff',
            fontSize : 18,
            marginLeft :  200,
        },

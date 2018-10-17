@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, AsyncStorage, Image } from 'react-native';
 import { NavigationActions, StackActions } from 'react-navigation';
-import { Card, ListItem, Button,Icon,Avatar } from 'react-native-elements'
-//import Icon from 'react-native-vector-icons/Ionicons';
-  
+import { Card, ListItem, Button,Icon,Header } from 'react-native-elements'
+
  
+
 class Profile extends Component {
     static navigationOptions={
         header:null
@@ -56,8 +56,18 @@ class Profile extends Component {
 
     render() {
         return (
+            
         <View style={styles.container}>
+        
+        <View style={styles.header}>
+        
 
+            <Header
+  leftComponent={{ icon: 'menu', color: '#fff' }}
+  centerComponent={{ text: 'ClzMate', style: { color: '#fff', fontSize:26 } }}
+  rightComponent={{ icon: 'home', color: '#fff' }}
+/> 
+      </View> 
             <View style={styles.top}>
 
                 <View style={styles.profileImage}>
@@ -95,7 +105,7 @@ class Profile extends Component {
                             <Button
                                 icon={<Icon name='code' color='#ffffff' />}
                                 backgroundColor='#616161'
-                                buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
+                                buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0,padding : 5}}
                                 title='Class Fees'
                                 onPress={() => {
                                     this.props.navigation.navigate('Fees');
@@ -144,7 +154,6 @@ class Profile extends Component {
         </View>
 
 
-             
          
 
       
@@ -159,12 +168,13 @@ class Profile extends Component {
 }
 
 const styles = StyleSheet.create({
+     
     container:{
         flex:1,
      },
      top:{
         flexDirection: 'row',
-        height: '25%',
+        height: '20%',
         alignItems: 'center',
         justifyContent : 'flex-start',
         backgroundColor : '#FFF176',
@@ -188,7 +198,7 @@ const styles = StyleSheet.create({
      },
      
      bottom:{
-         height: '75%',
+         height: '70%',
          backgroundColor:'#B3E5FC',
          flexDirection : 'row',
          flexWrap: 'wrap',
@@ -211,8 +221,8 @@ const styles = StyleSheet.create({
         fontWeight : 'bold',
      },
      icon:{
-         height: 10,
-         width : 10,
+         height: 8,
+         width : 20,
 
      },
      txt:{
@@ -223,6 +233,10 @@ const styles = StyleSheet.create({
          height:60,
          width: 60,
          //borderRadius:75,
+     },
+     header:{
+        height: '10%',
+        backgroundColor : 'black'
      }
      
 });
