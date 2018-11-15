@@ -132,8 +132,8 @@ import Icon from 'react-native-vector-icons/Ionicons';
             <TouchableOpacity style={styles.btnEye} 
              onPress={this.showPass.bind(this)}>
              <Icon 
-            name= {this.state.press == false ? 'ios-eye' : 'ios-eye-off'}
-            size = {26}
+            name= {this.state.press == false ? 'ios-eye-off' : 'ios-eye'}
+            size = {26} 
             color=  {'rgba(0,0,0,0.8)'}
              />
             </TouchableOpacity>
@@ -144,8 +144,11 @@ import Icon from 'react-native-vector-icons/Ionicons';
                 </TouchableOpacity>
 
                  
-                
-                <Text style= {styles.pwtxt}>Forgot password?</Text>
+                 <TouchableOpacity onPress ={this.login.bind(this)}> 
+                <Text style={styles.pwtxt}>Forgot password?</Text>
+                </TouchableOpacity>
+
+                {/* <Text style= {styles.pwtxt}>Forgot password?</Text> */}
                 </View>
                  
                  

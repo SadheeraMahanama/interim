@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Alert, Image } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Alert, Image,ScrollView } from 'react-native';
 
 
 export default class Register extends React.Component {
@@ -24,7 +24,8 @@ export default class Register extends React.Component {
   
   render() {
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
+      
             <Text style={styles.ems}>ClzMate</Text>
             <Text style={styles.header}>Forgot Password</Text>
             <Image
@@ -48,14 +49,14 @@ export default class Register extends React.Component {
                 onPress={this.goBackHandler} >                    
                         <Text style={styles.label}>Back</Text>     
             </TouchableOpacity>
-        </View>
+        </ScrollView>
       
     );
   }
 
   send = () => {
     console.log('send')
-     url =  'https://polar-meadow-28819.herokuapp.com/user/forgotPassword';
+     url =  'https://polar-meadow-28819.herokuapp.com/forgotPassword/:userId';
      console.log(url);
   try {
      // fetch('http://192.168.43.148:3000/users/authenticate',{
@@ -96,12 +97,12 @@ export default class Register extends React.Component {
 
 
 const styles = StyleSheet.create({
-  container: {
+  /*container: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
+  },*/
   ems:{
     fontSize: 35,
     fontWeight:'600',
@@ -110,7 +111,7 @@ const styles = StyleSheet.create({
   header:{
     fontSize: 30,
     fontWeight: '500',
-    textAlign:'center'
+    //textAlign:'center'
   },
   input:{
     marginRight: 20,
@@ -124,7 +125,7 @@ const styles = StyleSheet.create({
     width:150,
     borderRadius: 50,
     marginVertical: 20,
-    textAlign:'center',
+    //textAlign:'center',
     alignItems:'center'
   },
 
@@ -133,7 +134,7 @@ const styles = StyleSheet.create({
     padding: 15,
     width:150,
     borderRadius: 50,
-    textAlign:'center',
+    //textAlign:'center',
     alignItems:'center'
   },
 
