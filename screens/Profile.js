@@ -25,7 +25,7 @@ class Profile extends Component {
         try {
             this.tokenValue = await AsyncStorage.getItem('token')
         } catch (error) {
-            alert('Unknown error, token not retrive');
+            alert('Unknown error, token not retrive ...');
         }
     }
 
