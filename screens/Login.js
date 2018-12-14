@@ -73,6 +73,11 @@ import Icon from 'react-native-vector-icons/Ionicons';
             })
             .done();
     }
+
+    nextForgot=()=>{
+        console.log("Press forgotPassword")
+        this.props.navigation.navigate('ForgotPassword');
+    }
  
     
 
@@ -144,7 +149,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
                 </TouchableOpacity>
 
                  
-                 <TouchableOpacity onPress ={this.login.bind(this)}> 
+                 <TouchableOpacity onPress={this.nextForgot}> 
                 <Text style={styles.pwtxt}>Forgot password?</Text>
                 </TouchableOpacity>
 

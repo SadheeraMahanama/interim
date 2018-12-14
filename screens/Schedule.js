@@ -7,6 +7,7 @@ import {
   Text,
   View
 } from 'react-native';
+import DateTimePicker from 'react-native-modal-datetime-picker';
 import { Card, ListItem, Button,Icon,Header } from 'react-native-elements'
 
  
